@@ -1,0 +1,204 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+enum Plan {
+  FREE
+  PRO
+  TEAM
+  ENTERPRISE
+}
+
+enum ProjectStatus {
+  DRAFT
+  GENERATING
+  READY
+  DEPLOYED
+  FAILED
+  ARCHIVED
+}
+
+enum Visibility {
+  PRIVATE
+  UNLISTED
+  PUBLIC
+}
+
+enum DeploymentStatus {
+  QUEUED
+  BUILDING
+  READY
+  ERROR
+  CANCELED
+}
+
+model User {
+  id             String       @id @default(cuid())
+  clerkId        String       @unique
+  email          String       @unique
+  name           String?
+  avatarUrl      String?
+  role           UserRole     @default(USER)
+  plan           Plan         @default(FREE)
+  stripeCustomerId String?    @unique
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  projects       Project[]
+  memberships    Membership[]
+  usageEvents    UsageEvent[]
+  promptLogs     PromptLog[]
+  subscriptions  Subscription[]
+}
+
+model Workspace {
+  id          String       @id @default(cuid())
+  name        String
+  slug        String       @unique
+  plan        Plan         @default(FREE)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  memberships Membership[]
+  projects    Project[]
+}
+
+model Membership {
+  id          String    @id @default(cuid())
+  role        String    @default("MEMBER")
+  userId      String
+  workspaceId String
+  createdAt   DateTime  @default(now())
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  workspace   Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, workspaceId])
+  @@index([workspaceId])
+}
+
+model Project {
+  id          String        @id @default(cuid())
+  name        String
+  slug        String
+  description String        @default("")
+  prompt      String        @db.Text
+  framework   String        @default("nextjs")
+  language    String        @default("english")
+  theme       Json?
+  status      ProjectStatus @default(DRAFT)
+  visibility  Visibility    @default(PRIVATE)
+  favorite    Boolean       @default(false)
+  thumbnailUrl String?
+  liveUrl     String?
+  repositoryUrl String?
+  ownerId     String
+  workspaceId String?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  owner       User          @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  workspace   Workspace?    @relation(fields: [workspaceId], references: [id], onDelete: SetNull)
+  versions    ProjectVersion[]
+  deployments Deployment[]
+
+  @@unique([ownerId, slug])
+  @@index([ownerId, updatedAt])
+  @@index([workspaceId, updatedAt])
+}
+
+model ProjectVersion {
+  id        String   @id @default(cuid())
+  number    Int
+  summary   String?
+  files     Json
+  previewHtml String? @db.Text
+  projectId String
+  authorId  String?
+  createdAt DateTime @default(now())
+  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@unique([projectId, number])
+  @@index([projectId, createdAt])
+}
+
+model Deployment {
+  id          String           @id @default(cuid())
+  providerId  String?          @unique
+  status      DeploymentStatus @default(QUEUED)
+  url         String?
+  customDomain String?
+  metadata    Json?
+  projectId   String
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+  project     Project          @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId, createdAt])
+}
+
+model Template {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  description String
+  category    String
+  thumbnailUrl String?
+  prompt      String   @db.Text
+  files       Json?
+  published   Boolean  @default(false)
+  featured    Boolean  @default(false)
+  uses        Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([published, category])
+}
+
+model Subscription {
+  id                   String   @id @default(cuid())
+  stripeSubscriptionId String   @unique
+  stripePriceId        String
+  status               String
+  currentPeriodEnd     DateTime?
+  userId               String
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+  user                  User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model UsageEvent {
+  id        String   @id @default(cuid())
+  type      String
+  units     Int      @default(1)
+  metadata  Json?
+  userId    String
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, type, createdAt])
+}
+
+model PromptLog {
+  id          String   @id @default(cuid())
+  prompt      String   @db.Text
+  model       String
+  inputTokens Int      @default(0)
+  outputTokens Int     @default(0)
+  latencyMs   Int      @default(0)
+  success     Boolean  @default(true)
+  userId      String?
+  createdAt   DateTime @default(now())
+  user        User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([createdAt])
+  @@index([userId, createdAt])
+}

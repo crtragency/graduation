@@ -1,255 +1,171 @@
-# Graduation Project Platform
+# ProjectForge AI
 
-منصة متكاملة تساعد طلاب الجامعات على تحويل فكرة مشروع التخرج إلى مشروع منظم وقابل للتنفيذ والعرض، بدايةً من اختيار الفكرة وتكوين الفريق، مرورًا بالتخطيط والتنفيذ والتوثيق، وحتى تجهيز العرض النهائي ومتابعة التسليمات.
+ProjectForge AI is a production-oriented AI website builder for students, creators, and product teams. A user describes a project in natural language, reviews the generated plan, watches the build progress, previews the result across device sizes, and exports or deploys the complete source code.
 
-> المنصة مصممة لدعم تعلّم الطلاب وتنظيم عملهم، وليس لاستبدال مجهودهم الأكاديمي أو مخالفة سياسات الجامعة.
+## Product surfaces
 
-## فكرة المشروع
+- Premium animated marketing site with product demo, social proof, pricing, and FAQ.
+- Clerk authentication with a safe credential-free demo mode.
+- Project dashboard, usage overview, templates, history, deployments, and profile.
+- AI generation studio with structured options for type, theme, typography, framework, and language.
+- Generation timeline: analysis, planning, code, imagery, SEO, deployment.
+- Sandboxed live preview for desktop, tablet, and mobile.
+- Source file browser and code viewer.
+- ZIP download, GitHub repository creation, Vercel deployment, QR sharing, and custom domains.
+- PostgreSQL and Prisma data model for users, workspaces, projects, versions, deployments, subscriptions, usage, templates, and prompt logs.
+- Stripe subscriptions and verified webhooks.
+- Supabase Storage uploads.
+- Admin command center for users, revenue, token usage, deployments, system health, and prompt logs.
+- Dark and light appearance with responsive, accessible interactions.
 
-يواجه كثير من الطلاب صعوبة في معرفة نقطة البداية، اختيار فكرة مناسبة، تقسيم المهام، كتابة التوثيق، متابعة التقدم، وتجهيز العرض النهائي. تجمع هذه المنصة كل هذه الخطوات في مكان واحد، وتقدم مسارًا واضحًا ومخصصًا حسب التخصص، عدد أعضاء الفريق، الوقت المتاح، ومستوى الخبرة.
+## Stack
 
-## أهداف المنصة
+- Next.js 15 App Router
+- React 19 and TypeScript
+- Tailwind CSS and shadcn-style reusable UI components
+- Framer Motion and Lucide icons
+- PostgreSQL with Prisma ORM
+- Clerk authentication
+- OpenAI API
+- Stripe Billing
+- Vercel deployments
+- Supabase Storage
 
-- مساعدة الطلاب على اكتشاف أفكار مناسبة وقابلة للتنفيذ.
-- تحويل الفكرة إلى متطلبات ومراحل ومهام واضحة.
-- تنظيم التعاون بين أعضاء الفريق والمشرف الأكاديمي.
-- توفير قوالب للتوثيق والتقارير والعروض التقديمية.
-- متابعة التقدم والمواعيد النهائية والتنبيه بالمخاطر.
-- تحسين جودة المشروع مع الحفاظ على النزاهة الأكاديمية.
+## Local setup
 
-## رحلة المستخدم
+Requirements:
 
-1. إنشاء حساب وتحديد الجامعة والتخصص والسنة الدراسية.
-2. إنشاء فريق أو الانضمام إلى فريق موجود.
-3. إدخال الاهتمامات، المهارات، الوقت المتاح، ومتطلبات الجامعة.
-4. اقتراح أفكار مناسبة مع توضيح المشكلة، الحل، النطاق، والصعوبة.
-5. اختيار الفكرة وإنشاء خطة المشروع تلقائيًا.
-6. توزيع الأدوار والمهام على أعضاء الفريق.
-7. تنفيذ المراحل ومتابعة التقدم من لوحة تحكم واحدة.
-8. إنشاء ومراجعة التوثيق والتقارير الدورية.
-9. اختبار المشروع والاستعداد للمناقشة.
-10. تجهيز العرض النهائي وملفات التسليم.
+- Node.js 20 or newer
+- PostgreSQL 15 or newer
 
-## المزايا الرئيسية
-
-### 1. إنشاء وتقييم الأفكار
-
-- اقتراح أفكار حسب التخصص والاهتمامات.
-- تقييم الفكرة من حيث القيمة، الصعوبة، الوقت، والتكلفة.
-- تحديد المستخدم المستهدف والمشكلة التي يحلها المشروع.
-- مقارنة أكثر من فكرة قبل الاختيار.
-- فحص أولي لتكرار الفكرة وتقديم طرق لتطويرها.
-
-### 2. تخطيط المشروع
-
-- تحديد نطاق المشروع والأهداف والنتائج المتوقعة.
-- إنشاء المتطلبات الوظيفية وغير الوظيفية.
-- تقسيم المشروع إلى مراحل ومهام فرعية.
-- إنشاء جدول زمني ومواعيد تسليم واضحة.
-- تحديد الأولويات والاعتماديات والمخاطر.
-- اقتراح الأدوات والتقنيات المناسبة مع أسباب الاختيار.
-
-### 3. إدارة الفريق
-
-- إنشاء الفرق وإرسال دعوات للأعضاء.
-- توزيع الأدوار والمسؤوليات.
-- إسناد المهام ومتابعة حالتها.
-- تسجيل الاجتماعات والقرارات والملاحظات.
-- متابعة مساهمة كل عضو بصورة واضحة وعادلة.
-
-### 4. مساحة عمل المشروع
-
-- لوحة Kanban للمهام: مخطط لها، قيد التنفيذ، مراجعة، مكتملة.
-- تقويم للمواعيد والاجتماعات والتسليمات.
-- رفع الملفات وتنظيم الإصدارات.
-- سجل زمني لجميع التغييرات والقرارات.
-- لوحة مؤشرات تعرض نسبة الإنجاز والمهام المتأخرة والمخاطر.
-
-### 5. مساعد ذكي
-
-- شرح المتطلبات والخطوات بلغة بسيطة.
-- اقتراح خطة عمل مخصصة لكل مشروع.
-- المساعدة في العصف الذهني وتحسين الحلول.
-- مراجعة النصوص والتوثيق وتقديم ملاحظات قابلة للتنفيذ.
-- توليد أسئلة متوقعة للمناقشة والتدريب عليها.
-- توضيح مصادر أي محتوى مقترح والتنبيه إلى ضرورة مراجعته.
-
-### 6. التوثيق الأكاديمي
-
-- قوالب جاهزة لمقترح المشروع، خطة العمل، والتقرير النهائي.
-- تنظيم فصول التقرير ومتابعة اكتمالها.
-- إدارة المراجع والاستشهادات.
-- إنشاء الرسومات الأساسية مثل مخطط الاستخدام، تدفق البيانات، وقاعدة البيانات.
-- تصدير المستندات بصيغ مناسبة للطباعة والمشاركة.
-- فحص أولي لجودة الكتابة واتساق التنسيق.
-
-### 7. التطوير والاختبار
-
-- تحويل المتطلبات إلى قصص مستخدم ومعايير قبول.
-- تنظيم روابط المستودعات والبيئات التقنية.
-- إنشاء خطة اختبار وقوائم مراجعة للجودة.
-- تسجيل الأخطاء ومتابعة إصلاحها.
-- تجهيز قائمة تحقق قبل التسليم النهائي.
-
-### 8. العرض والمناقشة
-
-- إنشاء هيكل عرض تقديمي مناسب لمدة المناقشة.
-- تجهيز نص مختصر لكل متحدث.
-- توزيع أجزاء العرض على أعضاء الفريق.
-- توليد أسئلة متوقعة وإجابات إرشادية.
-- وضع خطة للعرض التجريبي وبدائل في حالة حدوث مشكلة تقنية.
-
-### 9. الإشراف الأكاديمي
-
-- لوحة خاصة بالمشرف لمتابعة الفرق.
-- مراجعة التسليمات وإضافة التعليقات.
-- اعتماد المراحل أو طلب تعديلات.
-- متابعة الاجتماعات ونسبة تقدم كل مشروع.
-- تقارير تساعد على اكتشاف التعثر مبكرًا.
-
-### 10. الإدارة
-
-- إدارة المستخدمين والجامعات والتخصصات.
-- إنشاء قوالب ومتطلبات مختلفة لكل جامعة أو كلية.
-- إدارة الخطط والاشتراكات والصلاحيات.
-- مراجعة البلاغات والمحتوى.
-- إحصائيات الاستخدام وجودة الخدمة.
-
-## المستخدمون والصلاحيات
-
-| المستخدم | أهم الصلاحيات |
-| --- | --- |
-| الطالب | إنشاء مشروع، الانضمام إلى فريق، تنفيذ المهام، ورفع الملفات |
-| قائد الفريق | إدارة الأعضاء، توزيع المهام، ومتابعة التسليمات |
-| المشرف | مراجعة المشاريع، كتابة الملاحظات، واعتماد المراحل |
-| مدير النظام | إدارة المنصة والمستخدمين والقوالب والتقارير |
-
-## أقسام المنصة المقترحة
-
-- الصفحة الرئيسية والتعريف بالخدمة.
-- التسجيل وتسجيل الدخول واستعادة الحساب.
-- إعداد الملف الشخصي والمهارات والتخصص.
-- مستكشف أفكار المشاريع.
-- مساحة الفريق والمشروع.
-- المهام والتقويم والاجتماعات.
-- المستندات والقوالب.
-- المساعد الذكي.
-- الاختبارات ومراجعة الجودة.
-- تجهيز العرض والمناقشة.
-- لوحة المشرف.
-- لوحة الإدارة.
-- الإشعارات والإعدادات والدعم.
-
-## نموذج البيانات الأساسي
-
-- **User:** بيانات المستخدم والدور والجامعة والتخصص والمهارات.
-- **Team:** أعضاء الفريق، قائد الفريق، والدعوات.
-- **Project:** الفكرة، الوصف، الأهداف، النطاق، الحالة، والتقنيات.
-- **Milestone:** مراحل المشروع ومواعيدها ونسبة إنجازها.
-- **Task:** المهمة، المسؤول عنها، الأولوية، الحالة، والموعد النهائي.
-- **Document:** نوع المستند، محتواه، نسخته، وحالة المراجعة.
-- **Meeting:** الموعد، الحضور، الملخص، والقرارات.
-- **Feedback:** ملاحظات المشرف أو أعضاء الفريق.
-- **Submission:** ملفات التسليم وحالة الاعتماد.
-- **Notification:** التنبيهات المرتبطة بالمشروع والمواعيد.
-
-## متطلبات أساسية
-
-### متطلبات وظيفية
-
-- تسجيل آمن وإدارة الحسابات والأدوار.
-- إنشاء فرق ومشاريع وإدارة دورة حياتها.
-- إدارة المهام والمراحل والمواعيد.
-- رفع الملفات وحفظ نسخها.
-- إنشاء تقارير وإشعارات لحظية.
-- دعم البحث والتصفية والتصدير.
-- تسجيل العمليات المهمة لأغراض المتابعة.
-
-### متطلبات غير وظيفية
-
-- واجهة عربية أولًا مع دعم اللغة الإنجليزية واتجاهي RTL وLTR.
-- تصميم متجاوب مع الهاتف والكمبيوتر.
-- حماية البيانات وتشفير المعلومات الحساسة.
-- نسخ احتياطي واستعادة للملفات والبيانات.
-- أداء جيد مع زيادة عدد المستخدمين والمشاريع.
-- سهولة الاستخدام وإتاحة الوصول.
-- فصل صلاحيات الطلاب والمشرفين والإدارة.
-
-## مراحل التنفيذ
-
-### المرحلة الأولى — المنتج الأولي (MVP)
-
-- التسجيل والملفات الشخصية.
-- إنشاء الفرق والمشاريع.
-- إضافة المهام والمراحل ومتابعة التقدم.
-- رفع المستندات وإضافة تعليقات المشرف.
-- إشعارات المواعيد والتسليمات.
-- لوحة تحكم أساسية للطالب والمشرف.
-
-### المرحلة الثانية
-
-- اقتراح الأفكار وتقييمها.
-- المساعد الذكي وقوالب التوثيق.
-- إدارة الاجتماعات والمخاطر.
-- تقارير أكثر تفصيلًا وتصدير المستندات.
-- تجهيز العرض والمناقشة.
-
-### المرحلة الثالثة
-
-- تكامل مع GitHub وخدمات التخزين والتقويم.
-- تحليلات متقدمة لقياس الأداء والتعثر.
-- دعم جامعات وقوالب أكاديمية متعددة.
-- تطبيق للهاتف وخيارات تعاون لحظي.
-
-## مؤشرات النجاح
-
-- نسبة الفرق التي تكمل المشروع في الموعد.
-- متوسط تقدم المشروع من أسبوع إلى آخر.
-- عدد المهام المتأخرة ووقت حل المشكلات.
-- معدل استخدام القوالب وأدوات المراجعة.
-- رضا الطلاب والمشرفين.
-- جودة واكتمال ملفات التسليم النهائية.
-
-## مبادئ النزاهة والخصوصية
-
-- يبقى الطالب مسؤولًا عن فهم وتنفيذ المحتوى الذي يقدمه.
-- توضح المنصة المحتوى الناتج عن الأدوات الذكية وتطلب مراجعته.
-- لا تُستخدم المنصة للغش أو انتحال أعمال الآخرين.
-- تحفظ بيانات الفرق والمشاريع وفق صلاحيات وصول واضحة.
-- لا تُشارك الملفات أو البيانات مع أطراف أخرى دون موافقة.
-- يحق للمستخدم تصدير بياناته وطلب حذفها وفق السياسة المعتمدة.
-
-## التقنيات المستخدمة
-
-- Next.js
-- React
-- CSS متجاوب مع دعم كامل للغة العربية واتجاه RTL
-- Vercel للنشر المستمر
-
-## التشغيل محليًا
+Install dependencies:
 
 ```bash
 npm install
+```
+
+Copy the environment template:
+
+```bash
+cp .env.example .env.local
+```
+
+For the credential-free product demo, every external variable may remain empty. For the complete production workflow, configure the services listed in `.env.example`.
+
+Generate Prisma Client and initialize the database:
+
+```bash
+npm run db:generate
+npm run db:push
+npm run db:seed
+```
+
+Start the development server:
+
+```bash
 npm run dev
 ```
 
-ثم افتح `http://localhost:3000` في المتصفح.
+Open [http://localhost:3000](http://localhost:3000).
 
-لإنشاء نسخة الإنتاج:
+## Environment variables
 
-```bash
-npm run build
-npm start
+| Variable | Purpose |
+| --- | --- |
+| `NEXT_PUBLIC_APP_URL` | Public application URL used in metadata and redirects |
+| `DATABASE_URL` | PostgreSQL connection string |
+| `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | Clerk browser key |
+| `CLERK_SECRET_KEY` | Clerk server key |
+| `OPENAI_API_KEY` | Live AI generation |
+| `OPENAI_MODEL` | OpenAI model used by the generator |
+| `STRIPE_SECRET_KEY` | Stripe server API |
+| `STRIPE_WEBHOOK_SECRET` | Stripe webhook signature verification |
+| `STRIPE_PRO_PRICE_ID` | Pro recurring price |
+| `STRIPE_TEAM_PRICE_ID` | Team recurring price |
+| `VERCEL_TOKEN` | Generated-project deployments and domains |
+| `VERCEL_TEAM_ID` | Optional Vercel team scope |
+| `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL |
+| `SUPABASE_SERVICE_ROLE_KEY` | Server-only storage access |
+| `SUPABASE_STORAGE_BUCKET` | Asset bucket name |
+| `GITHUB_TOKEN` | Repository creation and source upload |
+
+Never expose server secrets through `NEXT_PUBLIC_` variables.
+
+## Architecture
+
+```text
+app/
+  api/                 Route handlers for generation and integrations
+  dashboard/           Authenticated product workspace
+  admin/               Role-gated operations dashboard
+  sign-in, sign-up/    Clerk authentication surfaces
+components/
+  auth/                Authentication UI
+  dashboard/           Application shell and management panels
+  generator/           AI builder, preview, export, and deploy workflow
+  marketing/           Public landing page
+  ui/                  Reusable shadcn-style primitives
+lib/
+  ai/                  OpenAI generation orchestration and demo fallback
+  repositories/        Ownership-aware data access
+  auth.ts              Clerk identity boundary
+  db.ts                Prisma singleton
+  security.ts          Origin validation and rate limiting
+  validation.ts        Zod input schemas
+prisma/
+  schema.prisma        PostgreSQL production schema
+  seed.ts              Curated starter templates
 ```
 
-## حالة المشروع
+## Production database
 
-تم تجهيز الصفحة التعريفية الأولى للمنصة. الخطوة التالية هي بناء التسجيل، إدارة الفرق والمشاريع، ولوحات الطالب والمشرف.
+Use migrations in deployed environments:
 
-## المساهمة
+```bash
+npx prisma migrate dev --name init
+npm run db:migrate
+```
 
-نرحب بالأفكار والاقتراحات التي تحسن تجربة الطلاب والمشرفين. يمكن فتح Issue لاقتراح ميزة أو الإبلاغ عن مشكلة، ثم تقديم Pull Request بعد مناقشة التغيير.
+Do not use `prisma db push` as the deployment migration strategy.
 
-## الترخيص
+## Vercel deployment
 
-لم يتم اختيار ترخيص للمشروع بعد. جميع الحقوق محفوظة حتى إضافة ملف ترخيص رسمي.
+1. Import the GitHub repository into Vercel.
+2. Add production environment variables.
+3. Provision PostgreSQL and apply Prisma migrations.
+4. Add the Clerk, Stripe, and Vercel callback URLs for the production domain.
+5. Point Stripe webhooks to `/api/stripe/webhook`.
+6. Create the Supabase Storage bucket named by `SUPABASE_STORAGE_BUCKET`.
+7. Deploy from `main`.
+
+The included `vercel.json` explicitly selects the Next.js framework and production build.
+
+## Security controls
+
+- Server-side ownership checks for project access.
+- Same-origin verification for state-changing requests.
+- Zod validation and bounded request sizes.
+- Request rate limits for generation, deployment, export, uploads, and integrations.
+- Stripe signature verification.
+- Restricted upload MIME types and maximum file size.
+- Sandboxed generated-site previews.
+- Security headers and disabled framework disclosure.
+- Secrets confined to server-only variables.
+
+For distributed production rate limiting, replace the in-process fallback with a shared Redis or database-backed limiter.
+
+## Quality checks
+
+```bash
+npm run typecheck
+npm run lint
+npm run build
+```
+
+## Academic integrity
+
+ProjectForge AI is a creation and learning tool. Students remain responsible for understanding, reviewing, testing, and presenting the work they submit, and for complying with their university's academic policies.
+
+## License
+
+Proprietary. All rights reserved unless a separate license is added to the repository.
