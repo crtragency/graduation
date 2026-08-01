@@ -23,7 +23,7 @@ export function createDemoResult(request: GeneratorRequest): GenerationResult {
       { path: "app/page.tsx", language: "tsx", content: `import { Hero } from "@/components/hero";\nimport { Features } from "@/components/features";\n\nexport default function HomePage() {\n  return (\n    <main>\n      <Hero />\n      <Features />\n    </main>\n  );\n}` },
       { path: "components/hero.tsx", language: "tsx", content: `export function Hero() {\n  return (\n    <section className="hero">\n      <span>Built for what comes next</span>\n      <h1>A smarter way to move forward.</h1>\n      <p>${request.prompt.replace(/`/g, "'").slice(0, 180)}</p>\n      <button>Get started</button>\n    </section>\n  );\n}` },
       { path: "app/globals.css", language: "css", content: `@tailwind base;\n@tailwind components;\n@tailwind utilities;\n\n:root { color-scheme: light dark; }\nbody { margin: 0; font-family: Inter, sans-serif; }` },
-      { path: "package.json", language: "json", content: JSON.stringify({ name: slugify(name), private: true, scripts: { dev: "next dev", build: "next build" }, dependencies: { next: "15.5.9", react: "19.1.1", "react-dom": "19.1.1" } }, null, 2) },
+      { path: "package.json", language: "json", content: JSON.stringify({ name: slugify(name), private: true, scripts: { dev: "next dev", build: "next build" }, dependencies: { next: "15.5.9", react: "19.1.4", "react-dom": "19.1.4" } }, null, 2) },
     ],
   };
 }
