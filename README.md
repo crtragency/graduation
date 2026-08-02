@@ -1,13 +1,13 @@
-# ProjectForge AI
+# ProjectForge EDU
 
-ProjectForge AI is a production-oriented AI website builder for students, creators, and product teams. A user describes a project in natural language, reviews the generated plan, watches the build progress, previews the result across device sizes, and exports or deploys the complete source code.
+ProjectForge EDU is a focused website workspace for graduation-project teams. Students describe the real problem, users, objectives, and system modules; review a structured website plan; inspect the result across screen sizes; and export or publish editable source code.
 
 ## Product surfaces
 
 - Premium animated marketing site with product demo, social proof, pricing, and FAQ.
 - Clerk authentication with a safe credential-free demo mode.
 - Project dashboard, usage overview, templates, history, deployments, and profile.
-- AI generation studio with structured options for type, theme, typography, framework, and language.
+- Guided graduation-project studio with structured options for field, visual direction, typography, framework, and language.
 - Generation timeline: analysis, planning, code, imagery, SEO, deployment.
 - Sandboxed live preview for desktop, tablet, and mobile.
 - Source file browser and code viewer.
@@ -164,7 +164,7 @@ npm run build
 
 ## Academic integrity
 
-ProjectForge AI is a creation and learning tool. Students remain responsible for understanding, reviewing, testing, and presenting the work they submit, and for complying with their university's academic policies.
+ProjectForge EDU is a creation and learning tool. Students remain responsible for understanding, reviewing, testing, and presenting the work they submit, and for complying with their university's academic policies.
 
 ## License
 

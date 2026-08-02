@@ -8,20 +8,20 @@ type ThemeContextValue = { theme: Theme; toggleTheme: () => void };
 const ThemeContext = createContext<ThemeContextValue>({ theme: "dark", toggleTheme: () => undefined });
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("dark");
+  const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
-    const saved = window.localStorage.getItem("projectforge-theme") as Theme | null;
-    const next = saved === "light" ? "light" : "dark";
+    const saved = window.localStorage.getItem("projectforge-education-theme") as Theme | null;
+    const next = saved === "dark" ? "dark" : "light";
     setTheme(next);
-    document.documentElement.classList.toggle("light", next === "light");
+    document.documentElement.classList.toggle("dark", next === "dark");
   }, []);
 
   const toggleTheme = useCallback(() => {
     setTheme((current) => {
       const next = current === "dark" ? "light" : "dark";
-      document.documentElement.classList.toggle("light", next === "light");
-      window.localStorage.setItem("projectforge-theme", next);
+      document.documentElement.classList.toggle("dark", next === "dark");
+      window.localStorage.setItem("projectforge-education-theme", next);
       return next;
     });
   }, []);

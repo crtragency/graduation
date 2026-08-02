@@ -14,7 +14,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
     <OptionalClerkProvider>
       <ThemeProvider>
         {children}
-        <Toaster theme="dark" position="bottom-right" richColors closeButton />
+        <Toaster theme="system" position="bottom-right" richColors closeButton />
       </ThemeProvider>
     </OptionalClerkProvider>
   );

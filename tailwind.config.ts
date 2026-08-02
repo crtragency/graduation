@@ -28,8 +28,8 @@ const config: Config = {
       },
       borderRadius: { xl: "1rem", "2xl": "1.5rem", "3xl": "2rem" },
       boxShadow: {
-        glow: "0 0 80px rgba(124, 58, 237, .22)",
-        panel: "0 24px 80px rgba(0, 0, 0, .34)",
+        glow: "0 0 70px rgba(31, 88, 112, .16)",
+        panel: "0 24px 80px rgba(23, 63, 82, .18)",
       },
       animation: {
         "gradient-x": "gradient-x 8s ease infinite",
